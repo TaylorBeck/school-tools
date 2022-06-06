@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :set_breadcrumbs, only: [:index, :new, :show, :edit]
   def index
     @students = Student.all
   end
@@ -21,5 +22,19 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:first_name, :last_name, :email)
+  end
+
+  def set_breadcrumbs
+    add_breadcrumb("Students", students_path)
+
+    case action_name
+    when 'new'
+      add_breadcrumb('New Student')
+    when 'show'
+      add_breadcrumb(@student.name, @student)
+    when 'edit'
+      add_breadcrumb(@student.name, @student)
+      add_breadcrumb('Edit')
+    end
   end
 end

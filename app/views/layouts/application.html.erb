@@ -11,6 +11,28 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="breadcrumbs">
+      <% @breadcrumbs.each do |breadcrumb| %>
+        <% if breadcrumb.link.present? %>
+          <%= link_to breadcrumb.name, breadcrumb.link, class: 'breadcrumb-link' %>
+        <% else %>
+          <span class="breadcrumb-name">
+            <%= breadcrumb.name %>
+          </span>
+        <% end %>
+
+        <% unless breadcrumb == @breadcrumbs.last %>
+          /
+        <% end %>
+      <% end %>
+    </div>
+    <% flash.each do |type, message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
+    <div id="content">
+      <%= yield %>
+    </div>
   </body>
 </html>
