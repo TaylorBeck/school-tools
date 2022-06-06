@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root 'students#index'
 
-  resources :students, only: [:index, :new, :create]
+  resources :students
 end

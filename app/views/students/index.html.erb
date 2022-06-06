@@ -1,12 +1,18 @@
+<%= link_to 'New', new_student_path %>
+
 <table>
   <th>
     <td>Name</td>
     <td>Email</td>
+    <td colspan="3">Actions</td>
   </th>
   <% @students.each do |student| %>
     <tr>
       <td><%= student.name %></td>
       <td><%= student.email %></td>
+      <td><%= link_to 'View', student %></td>
+      <td><%= link_to 'Edit', edit_student_path(student) %></td>
+      <td><%= link_to 'Delete', student, method: :delete, data: { confirm: "Are you sure you want to permanently remove #{student.first_name}?" } %></td>
     </tr>
   <% end %>
 </table>
