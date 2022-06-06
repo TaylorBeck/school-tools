@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <div id="logo">
+      <%= image_tag "student-logo.png" %>
+      <div id="text">
+        School<span id="text-secondary">Tools</span>
+      </div>
+    </div>
     <div id="breadcrumbs">
       <% @breadcrumbs.each do |breadcrumb| %>
         <% if breadcrumb.link.present? %>
