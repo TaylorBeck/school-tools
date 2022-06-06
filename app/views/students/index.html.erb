@@ -1,0 +1,12 @@
+<table>
+  <th>
+    <td>Name</td>
+    <td>Email</td>
+  </th>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= student.email %></td>
+    </tr>
+  <% end %>
+</table>
