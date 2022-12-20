@@ -4,6 +4,7 @@ class CreateStudents < ActiveRecord::Migration[6.1]
       t.string :first_name
       t.string :last_name
       t.string :email
+      t.integer :grade, limit: 2
 
       t.timestamps
     end
